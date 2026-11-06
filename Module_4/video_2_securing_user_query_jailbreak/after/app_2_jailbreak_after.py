@@ -19,7 +19,7 @@ Safety layers in the gate :
     
 Hard stop: a blocked message never reaches the agent or a tool, gets a fixed reply, and is logged with the judge's reason.
 
-Evidence: video_2_jailbreak\\after\\action_log_after.jsonl (a blocked message is logged there with the judge's reason; it never reaches a tool).
+Evidence: video_2_securing_user_query_jailbreak\\after\\action_log_after.jsonl (a blocked message is logged there with the judge's reason; it never reaches a tool).
 
 """
 

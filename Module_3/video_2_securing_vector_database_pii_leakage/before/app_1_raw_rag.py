@@ -2,8 +2,8 @@
 app_1_raw_rag.py — BEFORE. A small RAG app (LangGraph + Chroma + Streamlit) with NO PII check.
 The documents go straight into the vector database, so the database holds names, phones, PAN and card numbers.
 
-Build the index ONCE before the demo:   python video_2_PII_on_vector_database/before/app_1_raw_rag.py --build
-Run the demo:                           streamlit run video_2_PII_on_vector_database/before/app_1_raw_rag.py
+Build the index ONCE before the demo:   python video_2_securing_vector_database_pii_leakage/before/app_1_raw_rag.py --build
+Run the demo:                           streamlit run video_2_securing_vector_database_pii_leakage/before/app_1_raw_rag.py
 """
 
 import sys

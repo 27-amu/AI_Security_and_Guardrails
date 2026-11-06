@@ -4,8 +4,8 @@ knowledge base, with a two-line system prompt.
 
 The model's answer goes STRAIGHT to the user: nothing inspects the output, so whatever an earlier layer let through (restricted chunks, customer PII, off-policy advice) is delivered.
 
-Build the index ONCE:        python video_5_output_component/before/app_1_output_guardrails_before.py --build
-Run the demo:                streamlit run video_5_output_component/before/app_1_output_guardrails_before.py
+Build the index ONCE:        python video_5_securing_output_output_guardrails/before/app_1_output_guardrails_before.py --build
+Run the demo:                streamlit run video_5_securing_output_output_guardrails/before/app_1_output_guardrails_before.py
 """
 
 import sys

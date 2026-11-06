@@ -3,8 +3,8 @@ app_2_judge_masked_rag.py — AFTER. The same app as app_1_raw_rag.py, with ONE 
 `mask` is an LLM-as-a-judge (OpenAI, structured output). It finds PII spans and the code replaces them with labels
 BEFORE the text is split and indexed. The vector database never stores the PII.
 
-Build the index ONCE before the demo:   python video_2_PII_on_vector_database/after/app_2_judge_masked_rag.py --build
-Run the demo:                           streamlit run video_2_PII_on_vector_database/after/app_2_judge_masked_rag.py
+Build the index ONCE before the demo:   python video_2_securing_vector_database_pii_leakage/after/app_2_judge_masked_rag.py --build
+Run the demo:                           streamlit run video_2_securing_vector_database_pii_leakage/after/app_2_judge_masked_rag.py
 """
 
 import sys

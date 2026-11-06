@@ -3,8 +3,8 @@ app_1_jailbreak_before.py — BEFORE. The same flat NovaBank RAG as Video 3, ove
 with the kind of system prompt many teams ship: a few polite rules written as plain text.
 The user's message goes straight to the retriever and the model. Nothing checks it.
 
-Build the index ONCE:        python video_4_LLM/jailbreak/before/app_1_jailbreak_before.py --build
-Run the demo:                streamlit run video_4_LLM/jailbreak/before/app_1_jailbreak_before.py
+Build the index ONCE:        python video_4_securing_user_query_and_llm_jailbreak_and_prompt_injection/jailbreak/before/app_1_jailbreak_before.py --build
+Run the demo:                streamlit run video_4_securing_user_query_and_llm_jailbreak_and_prompt_injection/jailbreak/before/app_1_jailbreak_before.py
 """
 
 import sys

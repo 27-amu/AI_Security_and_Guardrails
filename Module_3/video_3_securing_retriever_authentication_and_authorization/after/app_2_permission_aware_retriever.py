@@ -8,8 +8,8 @@ app_2_permission_aware_retriever.py — AFTER. The same app as app_1_flat_retrie
 The prompt only words the reply when the allowed chunks hold no answer. It is NOT the security control.
 The message is neutral on purpose: it must not reveal that restricted data exists.
 
-Build the index ONCE before the demo:   python video_3_Retriever/after/app_2_permission_aware_retriever.py --build
-Run the demo:                           streamlit run video_3_Retriever/after/app_2_permission_aware_retriever.py
+Build the index ONCE before the demo:   python video_3_securing_retriever_authentication_and_authorization/after/app_2_permission_aware_retriever.py --build
+Run the demo:                           streamlit run video_3_securing_retriever_authentication_and_authorization/after/app_2_permission_aware_retriever.py
 """
 
 import sys

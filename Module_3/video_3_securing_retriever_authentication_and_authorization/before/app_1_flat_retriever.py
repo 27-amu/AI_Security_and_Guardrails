@@ -2,8 +2,8 @@
 app_1_flat_retriever.py — BEFORE. One vector database, one collection, no identity check in the retriever.
 The user dropdown exists, but the retriever never reads it. So every user can retrieve every document.
 
-Build the index ONCE before the demo:   python video_3_Retriever/before/app_1_flat_retriever.py --build
-Run the demo:                           streamlit run video_3_Retriever/before/app_1_flat_retriever.py
+Build the index ONCE before the demo:   python video_3_securing_retriever_authentication_and_authorization/before/app_1_flat_retriever.py --build
+Run the demo:                           streamlit run video_3_securing_retriever_authentication_and_authorization/before/app_1_flat_retriever.py
 """
 
 import sys

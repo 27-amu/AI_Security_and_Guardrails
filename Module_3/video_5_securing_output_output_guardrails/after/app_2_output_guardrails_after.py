@@ -12,8 +12,8 @@ Output rails, in order:
 
 Both are LLM-as-a-judge rails built into NeMo Guardrails.
 
-Build its own index ONCE:   python video_5_output_component/after/app_2_output_guardrails_after.py --build
-Run the demo:               streamlit run video_5_output_component/after/app_2_output_guardrails_after.py
+Build its own index ONCE:   python video_5_securing_output_output_guardrails/after/app_2_output_guardrails_after.py --build
+Run the demo:               streamlit run video_5_securing_output_output_guardrails/after/app_2_output_guardrails_after.py
 """
 
 import sys

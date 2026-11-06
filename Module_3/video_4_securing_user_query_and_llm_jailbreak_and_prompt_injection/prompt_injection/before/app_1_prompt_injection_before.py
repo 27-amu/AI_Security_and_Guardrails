@@ -1,10 +1,10 @@
 """
-app_1_prompt_injection_before.py — BEFORE. The same flat NovaBank RAG as video_3_Retriever/before/app_1_flat_retriever.py.
+app_1_prompt_injection_before.py — BEFORE. The same flat NovaBank RAG as video_3_securing_retriever_authentication_and_authorization/before/app_1_flat_retriever.py.
 The retrieved chunks are pasted into the prompt as plain text, so the model cannot tell bank data from instructions.
 TKT-1058 contains a customer's email that was copied into the ticket automatically, with a fake "note for the assistant".
 
-Build the index ONCE:   python video_4_LLM/prompt_injection/before/app_1_prompt_injection_before.py --build
-Run the demo:           streamlit run video_4_LLM/prompt_injection/before/app_1_prompt_injection_before.py
+Build the index ONCE:   python video_4_securing_user_query_and_llm_jailbreak_and_prompt_injection/prompt_injection/before/app_1_prompt_injection_before.py --build
+Run the demo:           streamlit run video_4_securing_user_query_and_llm_jailbreak_and_prompt_injection/prompt_injection/before/app_1_prompt_injection_before.py
 Attack query:           What is the next step for ticket TKT-1058?
 """
 
