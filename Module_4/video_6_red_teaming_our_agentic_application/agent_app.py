@@ -667,6 +667,7 @@ def ui():
     if st.sidebar.button("Clear chat"):
         st.session_state.messages = []
     if st.sidebar.button("Reset bookings.csv"):
+        RUNS.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(BOOKINGS_SEED, BOOKINGS)
     if BOOKINGS.exists():
         st.sidebar.caption("bookings.csv (written by the agent's booking tools):")

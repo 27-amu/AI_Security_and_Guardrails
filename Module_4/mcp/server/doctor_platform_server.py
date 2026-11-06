@@ -17,9 +17,9 @@ from pathlib import Path
 from mcp.server.fastmcp import FastMCP
 
 HERE = Path(__file__).resolve().parent
-# A video can start the server with its own schedule file: doctor_platform_server.py --schedule <path>
+# A video can start the server with its own files: doctor_platform_server.py --schedule <path> --bookings <path>
 SCHEDULE = Path(sys.argv[sys.argv.index("--schedule") + 1]) if "--schedule" in sys.argv else HERE / "schedule.csv"
-BOOKINGS = HERE / "bookings.csv"
+BOOKINGS = Path(sys.argv[sys.argv.index("--bookings") + 1]) if "--bookings" in sys.argv else HERE / "bookings.csv"
 BOOKING_FIELDS = ["booking_id", "doctor_id", "doctor", "date", "time", "patient_name", "phone", "reason"]
 
 mcp = FastMCP("doctor-platform")
