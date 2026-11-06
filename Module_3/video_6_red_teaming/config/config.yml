@@ -1,0 +1,34 @@
+# ======================================================================================================
+# config/config.yml - the main settings of the NeMo output rails (layer 4)
+
+# What is this file?
+#   The settings sheet for NeMo Guardrails, the library that checks every answer AFTER the model wrote it and
+#   BEFORE the employee sees it. It says which models do the work and which checks run, and in what order.
+
+# Why do we need it?
+#   Without it rag_app.py cannot start the rails, so the last safety layer would be missing and any answer
+#   the model writes would go straight to the employee.
+
+# In simple words
+#   Think of a quality inspector at the end of a factory line. This file says:
+#     - who the inspectors are         -> `models`  (the bank assistant and two checking models)
+#     - which checks, in which order   -> `rails`   (first "is it true?", then "is it allowed?")
+#   The wording each inspector uses is in prompts.yml; the "what to say when it fails" is in rails.co.
+# ======================================================================================================
+
+models:
+  - type: main                      # the bank assistant (same model as BEFORE)
+    engine: openai
+    model: gpt-4o-mini
+  - type: self_check_output         # LLM-as-a-judge #1: is the answer allowed by bank policy?
+    engine: openai
+    model: gpt-4o-mini
+  - type: self_check_facts          # LLM-as-a-judge #2: is the answer supported by the retrieved chunks?
+    engine: openai
+    model: gpt-4o-mini
+
+rails:
+  output:
+    flows:
+      - check answer grounded       # 1. self check facts         (answer vs retrieved context)
+      - self check output           # 2. self check output        (answer vs NovaBank policy)

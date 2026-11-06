@@ -1,0 +1,12 @@
+define bot refuse to respond
+  "I'm sorry, I can't share that. I don't have the required context to answer this question."
+
+define bot inform no context
+  "I don't have the required context to answer this question."
+
+define subflow check answer grounded
+  """Wraps the built-in self_check_facts action: if the answer is not supported by the retrieved chunks, show a fixed message."""
+  $response = execute self_check_facts
+  if $response.is_blocked
+    bot inform no context
+    stop

@@ -1,0 +1,29 @@
+# ======================================================================================================
+# config/rails.co - what the output rails do when a check fails
+
+# What is this file?
+#   A tiny script in NeMo's own rail language (Colang). It holds the fixed messages the employee sees when
+#   an answer is stopped, and the rule "if the answer is not backed by the documents, replace it".
+
+# Why do we need it?
+#   config.yml lists the checks by name ("check answer grounded"). This file is where that name is defined.
+#   Without it the rail has no behaviour: NeMo would not know what to do when a check says "no".
+
+# In simple words
+#   The inspector (config.yml) points at a bad product. This file is the rule book:
+#   "if the answer is not supported by the documents, throw it away and say the sentence below instead."
+#   The other check, `self check output`, is built into NeMo, so only the "grounded" rule is written here.
+# ======================================================================================================
+
+define bot refuse to respond
+  "I'm sorry, I can't share that. I don't have the required context to answer this question."
+
+define bot inform no context
+  "I don't have the required context to answer this question."
+
+define subflow check answer grounded
+  """Wraps the built-in self_check_facts action: if the answer is not supported by the retrieved chunks, show a fixed message."""
+  $response = execute self_check_facts
+  if $response.is_blocked
+    bot inform no context
+    stop

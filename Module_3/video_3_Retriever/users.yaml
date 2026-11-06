@@ -1,0 +1,42 @@
+# ----------------------------------------------------------------------------------------------------------
+# DUMMY IDENTITY STORE. In production this file does not exist. This is how the real flow works (SSO + OIDC):
+#
+#   1. The employee opens the assistant. The app does not ask for a password. It redirects the browser to the
+#      company identity provider (IdP): for example Microsoft Entra ID, Okta or Google Workspace. This is SSO.
+#      (Simple explanation: one front door for all company apps. You show your badge once, at that door.)
+#   2. The employee signs in at the IdP (password + MFA). Our app never sees the password.
+#   3. The IdP sends back a signed token (OIDC ID token / access token, a JWT). The token holds claims:
+#      who the user is (sub, email) and which groups the user is in (for example "hr-managers").
+#      (Simple explanation: a sealed pass with your name and your team written on it.)
+#   4. Our BACKEND checks the token: the signature, the expiry time and the audience. If a check fails, stop.
+#      The identity never comes from the browser text, the chat message or the prompt.
+#   5. The backend maps the groups in the token to user ATTRIBUTES: a role and, for support agents, a level.
+#      THIS FILE IS THAT MAPPING. In production IT manages the group members in the IdP, and the mapping
+#      lives in config or in a database. The team of the app does not manage the members.
+#   6. The retriever compares these attributes with the metadata of each chunk (see catalog.yaml).
+#      It keeps only the chunks that match. This happens BEFORE the search (pre-retrieval).
+#
+# Limit to remember: group claims are copied into the token when it is issued. If IT removes a user from a
+# group, the old token still holds the old group until it expires or is refreshed. Keep token lifetimes short.
+#
+# In this demo the Streamlit dropdown replaces steps 1 to 4. The dropdown is NOT a security control.
+#
+# role  = what the person does. 
+# level = how much experience does the person have ? (new_joiner or experienced).
+# A user without a level sees only the chunks whose level is "all".
+# ----------------------------------------------------------------------------------------------------------
+
+users:
+  customer_support_agent_new_joiner:
+    role: customer_support_agent
+    level: new_joiner
+
+  customer_support_agent_experienced:
+    role: customer_support_agent
+    level: experienced
+
+  hr_manager:
+    role: hr_manager
+
+  ceo:
+    role: ceo

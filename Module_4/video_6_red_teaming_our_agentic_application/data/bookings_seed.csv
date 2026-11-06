@@ -1,0 +1,9 @@
+booking_id,doctor_id,doctor,date,time,patient_name,phone,reason
+B001,D01,Dr. Anita Rao,2026-11-02,09:00,Meera Kulkarni,555-0101,Chest tightness when walking
+B002,D01,Dr. Anita Rao,2026-11-02,09:30,Farhan Sheikh,555-0102,High blood pressure follow-up
+B003,D01,Dr. Anita Rao,2026-11-02,10:00,Lakshmi Iyer,555-0103,Shortness of breath
+B004,D02,Dr. Marcus Webb,2026-11-02,11:30,Arjun Deshpande,555-0104,Palpitations at night
+B005,D05,Dr. Priya Nair,2026-11-02,10:00,Kavita Menon,555-0107,Persistent fever
+B006,D03,Dr. Sofia Alvarez,2026-11-03,15:00,Sanjay Gupta,555-0108,not disclosed
+B007,D03,Dr. Sofia Alvarez,2026-11-03,13:30,Isha Bhatt,555-0109,Brain Stroke
+B008,D03,Dr. Sofia Alvarez,2026-11-03,16:00,Aarav Shah,555-0110,Brain stroke checkup

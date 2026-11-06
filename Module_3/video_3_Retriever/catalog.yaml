@@ -1,0 +1,26 @@
+# ----------------------------------------------------------------------------------------------------------
+# Stand-in for the bank's document management system and CRM. In production these values are copied from the
+# source systems' permissions and ticket fields, not typed by the AI team.
+#
+# At ingestion every chunk gets "allowed_roles" and "level" from this file, as metadata.
+# If a folder is missing here, or a support ticket is missing under "tickets:", the build stops with an error.
+# ----------------------------------------------------------------------------------------------------------
+
+folders:                       # every chunk from this folder gets these meta data values
+  retail/products:           {allowed_roles: [customer_support_agent, hr_manager, ceo], level: all}
+  retail/policies:           {allowed_roles: [customer_support_agent, hr_manager, ceo], level: all}
+  retail/branch_ops:         {allowed_roles: [customer_support_agent, hr_manager, ceo], level: all}
+  retail/hr:                 {allowed_roles: [customer_support_agent, hr_manager, ceo], level: all}
+  retail/hr_confidential:    {allowed_roles: [hr_manager, ceo], level: all}
+  retail/finance_restricted: {allowed_roles: [ceo], level: all}
+  retail/risk:               {allowed_roles: [ceo], level: all}
+  retail/support_tickets:    {allowed_roles: [customer_support_agent]}      # level comes from "tickets:" below
+  
+  wealth/policies:           {allowed_roles: [ceo], level: all}
+  wealth/clients:            {allowed_roles: [ceo], level: all}
+  wealth/exec_restricted:    {allowed_roles: [ceo], level: all}
+
+tickets:                       # stand-in for a CRM field
+  TKT-1063.md: new_joiner
+  TKT-1041.md: experienced
+  TKT-1058.md: experienced

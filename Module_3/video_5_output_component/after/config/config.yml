@@ -1,0 +1,17 @@
+# NovaBank — OUTPUT rails only. The answer is checked after the LLM and before the user sees it.
+models:
+  - type: main                      # the bank assistant (same model as BEFORE)
+    engine: openai
+    model: gpt-4o-mini
+  - type: self_check_output         # LLM-as-a-judge #1: is the answer allowed by bank policy?
+    engine: openai
+    model: gpt-4o-mini
+  - type: self_check_facts          # LLM-as-a-judge #2: is the answer supported by the retrieved chunks?
+    engine: openai
+    model: gpt-4o-mini
+
+rails:
+  output:
+    flows:
+      - check answer grounded       # 1. self check facts         (answer vs retrieved context)
+      - self check output           # 2. self check output        (answer vs NovaBank policy)

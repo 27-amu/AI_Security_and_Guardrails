@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Vector databases (build them with the --build command of each app)
+store/
+store_flat/
+store_catalog/
+
+# Agent memory (re-created and seeded on first run)
+mem0_store/
+
+# Files the apps write while they run
+action_log*.jsonl
+chats_*.json
+runs/
+
+# promptfoo output (run_redteam.ps1 writes it)
+results.json
+.promptfoo/
+node_modules/
+
+# Notes
+progress.md
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

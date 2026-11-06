@@ -1,0 +1,14 @@
+# Doctor booking agent: OUTPUT rail only. The finished answer is checked before the patient sees it.
+# The agent (tools, MCP, LangGraph loop) is our own code; NeMo Guardrails only judges the answer.
+models:
+  - type: main                      # required by NeMo; the agent itself uses its own gpt-4o-mini client
+    engine: openai
+    model: gpt-4o-mini
+  - type: self_check_output         # LLM-as-a-judge: does the answer break a platform policy?
+    engine: openai
+    model: gpt-4o-mini
+
+rails:
+  output:
+    flows:
+      - self check output           # built-in rail; the client's policies are in prompts.yml
