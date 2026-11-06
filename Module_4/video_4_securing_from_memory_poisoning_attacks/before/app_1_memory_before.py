@@ -44,7 +44,7 @@ from langgraph.graph import END, START, StateGraph
 from mem0 import Memory
 
 HERE = Path(__file__).resolve().parent
-VIDEO = HERE.parent                                   # video_4_memory/
+VIDEO = HERE.parent                                   # video_4_securing_from_memory_poisoning_attacks/
 ROOT = HERE.parents[1]                                # Module_4/
 PAGES = ROOT / "doctor_pages"                         # one HTML page per doctor
 POISONED_PAGES = VIDEO / "data" / "poisoned_pages"    # used instead of the real page while "poisoned" is selected
