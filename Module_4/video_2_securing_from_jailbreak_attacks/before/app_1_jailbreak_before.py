@@ -33,11 +33,10 @@ from pathlib import Path
 from typing import TypedDict
 
 import streamlit as st
-from dotenv import dotenv_values
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, ToolMessage
 from langchain_core.tools import tool
 from langchain_mcp_adapters.client import MultiServerMCPClient
-from langchain_openai import ChatOpenAI
+from langchain_ollama import ChatOllama
 from langgraph.graph import END, START, StateGraph
 
 HERE = Path(__file__).resolve().parent
@@ -47,12 +46,12 @@ SERVER = ROOT / "mcp" / "server" / "doctor_platform_server.py"
 BOOKINGS = ROOT / "mcp" / "server" / "bookings.csv"
 ACTION_LOG = HERE / "action_log_before.jsonl"         # the evidence file, next to this app
 
-OPENAI_KEY = dotenv_values(ROOT / ".env").get("OPENAI_API_KEY")  
+OLLAMA_MODEL = "llama3.2:3b"
 
 
 def make_llm():
-    """The only place that creates a model: gpt-4o-mini."""
-    return ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=OPENAI_KEY)
+    """The only place that creates a model: a local Ollama model, no API key needed."""
+    return ChatOllama(model=OLLAMA_MODEL, temperature=0)
 
 
 # A short system prompt, like the one many teams ship. It states the rules, but nothing enforces them.
